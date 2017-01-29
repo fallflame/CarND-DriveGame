@@ -56,6 +56,7 @@ print('Steering MSE: ', sum(steering_res) / len(steering_res) )
 ##############
 #    Model   #
 ##############
+from keras.applications.vgg16 import VGG16
 from keras.applications.vgg19 import VGG19
 from keras.applications.inception_v3 import InceptionV3
 from keras.models import Model
@@ -66,7 +67,7 @@ from keras.layers.pooling import MaxPooling2D, AveragePooling2D, GlobalAveragePo
 from keras.layers.normalization import BatchNormalization
 
 
-base_model = InceptionV3(weights='imagenet', include_top=False, input_shape=(160, 320, 3))
+base_model = VGG16(weights='imagenet', include_top=False, input_shape=(160, 320, 3))
 
 
 x = base_model.output
@@ -117,9 +118,9 @@ for i, layer in enumerate(model.layers):
 
 # we chose to train the top 2 inception blocks, i.e. we will freeze
 # the first 172 layers and unfreeze the rest:
-for layer in model.layers[:217]:
+for layer in model.layers[:19]:
    layer.trainable = False
-for layer in model.layers[217:]:
+for layer in model.layers[19:]:
    layer.trainable = True
 
 # Compile and train the model
