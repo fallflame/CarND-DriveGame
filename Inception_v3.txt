@@ -1,0 +1,307 @@
+$ python model.py
+Modules loaded.
+CSV file loaded.
+Data Size:  28067
+Image Size:  320 x 160
+Steering Mean:  -0.027806499018954513
+Steering MSE:  0.03587489151888581
+0 input_1
+1 convolution2d_1
+2 batchnormalization_1
+3 convolution2d_2
+4 batchnormalization_2
+5 convolution2d_3
+6 batchnormalization_3
+7 maxpooling2d_1
+8 convolution2d_4
+9 batchnormalization_4
+10 convolution2d_5
+11 batchnormalization_5
+12 maxpooling2d_2
+13 convolution2d_9
+14 batchnormalization_9
+15 convolution2d_7
+16 convolution2d_10
+17 batchnormalization_7
+18 batchnormalization_10
+19 averagepooling2d_1
+20 convolution2d_6
+21 convolution2d_8
+22 convolution2d_11
+23 convolution2d_12
+24 batchnormalization_6
+25 batchnormalization_8
+26 batchnormalization_11
+27 batchnormalization_12
+28 mixed0
+29 convolution2d_16
+30 batchnormalization_16
+31 convolution2d_14
+32 convolution2d_17
+33 batchnormalization_14
+34 batchnormalization_17
+35 averagepooling2d_2
+36 convolution2d_13
+37 convolution2d_15
+38 convolution2d_18
+39 convolution2d_19
+40 batchnormalization_13
+41 batchnormalization_15
+42 batchnormalization_18
+43 batchnormalization_19
+44 mixed1
+45 convolution2d_23
+46 batchnormalization_23
+47 convolution2d_21
+48 convolution2d_24
+49 batchnormalization_21
+50 batchnormalization_24
+51 averagepooling2d_3
+52 convolution2d_20
+53 convolution2d_22
+54 convolution2d_25
+55 convolution2d_26
+56 batchnormalization_20
+57 batchnormalization_22
+58 batchnormalization_25
+59 batchnormalization_26
+60 mixed2
+61 convolution2d_28
+62 batchnormalization_28
+63 convolution2d_29
+64 batchnormalization_29
+65 convolution2d_27
+66 convolution2d_30
+67 batchnormalization_27
+68 batchnormalization_30
+69 maxpooling2d_3
+70 mixed3
+71 convolution2d_35
+72 batchnormalization_35
+73 convolution2d_36
+74 batchnormalization_36
+75 convolution2d_32
+76 convolution2d_37
+77 batchnormalization_32
+78 batchnormalization_37
+79 convolution2d_33
+80 convolution2d_38
+81 batchnormalization_33
+82 batchnormalization_38
+83 averagepooling2d_4
+84 convolution2d_31
+85 convolution2d_34
+86 convolution2d_39
+87 convolution2d_40
+88 batchnormalization_31
+89 batchnormalization_34
+90 batchnormalization_39
+91 batchnormalization_40
+92 mixed4
+93 convolution2d_45
+94 batchnormalization_45
+95 convolution2d_46
+96 batchnormalization_46
+97 convolution2d_42
+98 convolution2d_47
+99 batchnormalization_42
+100 batchnormalization_47
+101 convolution2d_43
+102 convolution2d_48
+103 batchnormalization_43
+104 batchnormalization_48
+105 averagepooling2d_5
+106 convolution2d_41
+107 convolution2d_44
+108 convolution2d_49
+109 convolution2d_50
+110 batchnormalization_41
+111 batchnormalization_44
+112 batchnormalization_49
+113 batchnormalization_50
+114 mixed5
+115 convolution2d_55
+116 batchnormalization_55
+117 convolution2d_56
+118 batchnormalization_56
+119 convolution2d_52
+120 convolution2d_57
+121 batchnormalization_52
+122 batchnormalization_57
+123 convolution2d_53
+124 convolution2d_58
+125 batchnormalization_53
+126 batchnormalization_58
+127 averagepooling2d_6
+128 convolution2d_51
+129 convolution2d_54
+130 convolution2d_59
+131 convolution2d_60
+132 batchnormalization_51
+133 batchnormalization_54
+134 batchnormalization_59
+135 batchnormalization_60
+136 mixed6
+137 convolution2d_65
+138 batchnormalization_65
+139 convolution2d_66
+140 batchnormalization_66
+141 convolution2d_62
+142 convolution2d_67
+143 batchnormalization_62
+144 batchnormalization_67
+145 convolution2d_63
+146 convolution2d_68
+147 batchnormalization_63
+148 batchnormalization_68
+149 averagepooling2d_7
+150 convolution2d_61
+151 convolution2d_64
+152 convolution2d_69
+153 convolution2d_70
+154 batchnormalization_61
+155 batchnormalization_64
+156 batchnormalization_69
+157 batchnormalization_70
+158 mixed7
+159 convolution2d_73
+160 batchnormalization_73
+161 convolution2d_74
+162 batchnormalization_74
+163 convolution2d_71
+164 convolution2d_75
+165 batchnormalization_71
+166 batchnormalization_75
+167 convolution2d_72
+168 convolution2d_76
+169 batchnormalization_72
+170 batchnormalization_76
+171 averagepooling2d_8
+172 mixed8
+173 convolution2d_81
+174 batchnormalization_81
+175 convolution2d_78
+176 convolution2d_82
+177 batchnormalization_78
+178 batchnormalization_82
+179 convolution2d_79
+180 convolution2d_80
+181 convolution2d_83
+182 convolution2d_84
+183 averagepooling2d_9
+184 convolution2d_77
+185 batchnormalization_79
+186 batchnormalization_80
+187 batchnormalization_83
+188 batchnormalization_84
+189 convolution2d_85
+190 batchnormalization_77
+191 mixed9_0
+192 merge_1
+193 batchnormalization_85
+194 mixed9
+195 convolution2d_90
+196 batchnormalization_90
+197 convolution2d_87
+198 convolution2d_91
+199 batchnormalization_87
+200 batchnormalization_91
+201 convolution2d_88
+202 convolution2d_89
+203 convolution2d_92
+204 convolution2d_93
+205 averagepooling2d_10
+206 convolution2d_86
+207 batchnormalization_88
+208 batchnormalization_89
+209 batchnormalization_92
+210 batchnormalization_93
+211 convolution2d_94
+212 batchnormalization_86
+213 mixed9_1
+214 merge_2
+215 batchnormalization_94
+216 mixed10
+217 globalaveragepooling2d_1
+218 dense_1
+219 dense_2
+Epoch 1/40
+67386/67359 [==============================] - 623s - loss: 0.1028 - val_loss: 0.3741
+Epoch 2/40
+67386/67359 [==============================] - 605s - loss: 0.0158 - val_loss: 0.1088
+Epoch 3/40
+67386/67359 [==============================] - 603s - loss: 0.0134 - val_loss: 0.2323
+Epoch 4/40
+67386/67359 [==============================] - 605s - loss: 0.0123 - val_loss: 0.2381
+Epoch 5/40
+67386/67359 [==============================] - 604s - loss: 0.0119 - val_loss: 0.1252
+Epoch 6/40
+67386/67359 [==============================] - 604s - loss: 0.0123 - val_loss: 1.2093
+Epoch 7/40
+67386/67359 [==============================] - 605s - loss: 0.0117 - val_loss: 1.3945
+Epoch 8/40
+67386/67359 [==============================] - 605s - loss: 0.0116 - val_loss: 0.2844
+Epoch 9/40
+67386/67359 [==============================] - 605s - loss: 0.0115 - val_loss: 0.5284
+Epoch 10/40
+67386/67359 [==============================] - 605s - loss: 0.0108 - val_loss: 1.0315
+Epoch 11/40
+67386/67359 [==============================] - 604s - loss: 0.0102 - val_loss: 2.3750
+Epoch 12/40
+67386/67359 [==============================] - 605s - loss: 0.0101 - val_loss: 1.3851
+Epoch 13/40
+67386/67359 [==============================] - 604s - loss: 0.0100 - val_loss: 1.6678
+Epoch 14/40
+67386/67359 [==============================] - 604s - loss: 0.0091 - val_loss: 0.7646
+Epoch 15/40
+67386/67359 [==============================] - 605s - loss: 0.0115 - val_loss: 1.2200
+Epoch 16/40
+67386/67359 [==============================] - 604s - loss: 0.0081 - val_loss: 1.0528
+Epoch 17/40
+67386/67359 [==============================] - 606s - loss: 0.0079 - val_loss: 1.8198
+Epoch 18/40
+67386/67359 [==============================] - 605s - loss: 0.0094 - val_loss: 5.1535
+Epoch 19/40
+67386/67359 [==============================] - 604s - loss: 0.0081 - val_loss: 8.2764
+Epoch 20/40
+67386/67359 [==============================] - 604s - loss: 0.0071 - val_loss: 5.8273
+Epoch 21/40
+67386/67359 [==============================] - 604s - loss: 0.0079 - val_loss: 14.4849
+Epoch 22/40
+67386/67359 [==============================] - 605s - loss: 0.0075 - val_loss: 3.1758
+Epoch 23/40
+67386/67359 [==============================] - 604s - loss: 0.0070 - val_loss: 12.0579
+Epoch 24/40
+67386/67359 [==============================] - 604s - loss: 0.0075 - val_loss: 7.6010
+Epoch 25/40
+67386/67359 [==============================] - 604s - loss: 0.0068 - val_loss: 9.0603
+Epoch 26/40
+67386/67359 [==============================] - 604s - loss: 0.0068 - val_loss: 4.7371
+Epoch 27/40
+67386/67359 [==============================] - 604s - loss: 0.0064 - val_loss: 5.2066
+Epoch 28/40
+67386/67359 [==============================] - 604s - loss: 0.0070 - val_loss: 5.9027
+Epoch 29/40
+67386/67359 [==============================] - 604s - loss: 0.0064 - val_loss: 5.1150
+Epoch 30/40
+67386/67359 [==============================] - 604s - loss: 0.0059 - val_loss: 1.3807
+Epoch 31/40
+67386/67359 [==============================] - 604s - loss: 0.0060 - val_loss: 24.4821
+Epoch 32/40
+67386/67359 [==============================] - 604s - loss: 0.0059 - val_loss: 0.5660
+Epoch 33/40
+67386/67359 [==============================] - 604s - loss: 0.0061 - val_loss: 17.4699
+Epoch 34/40
+67386/67359 [==============================] - 604s - loss: 0.0056 - val_loss: 1.4358
+Epoch 35/40
+67386/67359 [==============================] - 603s - loss: 0.0067 - val_loss: 0.3761
+Epoch 36/40
+67386/67359 [==============================] - 604s - loss: 0.0061 - val_loss: 12.9871
+Epoch 37/40
+67386/67359 [==============================] - 605s - loss: 0.0052 - val_loss: 17.8932
+Epoch 38/40
+67386/67359 [==============================] - 604s - loss: 0.0052 - val_loss: 12.0513
+Epoch 39/40
+67386/67359 [==============================] - 604s - loss: 0.0058 - val_loss: 10.1589
+Epoch 40/40
+67386/67359 [==============================] - 605s - loss: 0.0053 - val_loss: 1.0072Using TensorFlow backend.

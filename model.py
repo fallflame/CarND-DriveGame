@@ -56,58 +56,26 @@ print('Steering MSE: ', sum(steering_res) / len(steering_res) )
 ##############
 #    Model   #
 ##############
+from keras.applications.vgg19 import VGG19
+from keras.applications.inception_v3 import InceptionV3
+from keras.models import Model
 from keras.models import Sequential
 from keras.layers.core import Dense, Activation, Flatten, Dropout
 from keras.layers.convolutional import Convolution2D
-from keras.layers.pooling import MaxPooling2D, AveragePooling2D
+from keras.layers.pooling import MaxPooling2D, AveragePooling2D, GlobalAveragePooling2D
 from keras.layers.normalization import BatchNormalization
 
-model = Sequential()
 
-model.add(BatchNormalization(input_shape=(height, width, 3)))
-
-# 320 * 160 * 3
-model.add(Convolution2D(40, 11, 11, subsample = (2, 2)))
-# 176 * 88 * 40
-model.add(Activation('relu'))
-model.add(MaxPooling2D())
-# 88 * 44 * 40
-model.add(Dropout(0.2))
-
-model.add(Convolution2D(60, 7, 7, subsample = (2, 2)))
-# 42 * 20 * 60
-model.add(Activation('relu'))
-model.add(MaxPooling2D())
-# 21 * 10 * 60
-model.add(Dropout(0.2))
+base_model = InceptionV3(weights='imagenet', include_top=False, input_shape=(160, 320, 3))
 
 
-model.add(Convolution2D(80, 3, 3, subsample = (2, 2)))
-# 10 * 5 * 80
-model.add(Activation('relu'))
+x = base_model.output
+x = GlobalAveragePooling2D()(x)
+# let's add a fully-connected layer
+x = Dense(1024, activation='relu')(x)
+x = Dense(1)(x)
 
-model.add(Convolution2D(110, 3, 3))
-# 8 * 3 * 110
-model.add(Activation('relu'))
-
-model.add(Flatten())
-# 2640
-model.add(Dropout(0.2))
-
-
-model.add(Dense(240))
-model.add(Activation('relu'))
-
-model.add(Dense(120))
-model.add(Activation('relu'))
-
-model.add(Dense(50))
-model.add(Activation('relu'))
-
-model.add(Dense(10))
-model.add(Activation('relu'))
-
-model.add(Dense(1))
+model = Model(input=base_model.input, output=x)
 
 ##############
 #  Training  #
@@ -143,14 +111,23 @@ def generate_data(lines):
 			if len(batch_y) >= batch_size:
 				yield np.asarray(batch_X), np.asarray(batch_y)
 				batch_X, batch_y = [], []
-				
+
+for i, layer in enumerate(model.layers):
+   print(i, layer.name)
+
+# we chose to train the top 2 inception blocks, i.e. we will freeze
+# the first 172 layers and unfreeze the rest:
+for layer in model.layers[:217]:
+   layer.trainable = False
+for layer in model.layers[217:]:
+   layer.trainable = True
+
 # Compile and train the model
 model.compile('adam', 'mean_squared_error')
-model.load_weights("model.h5")
 
 raw_data = shuffle(raw_data)
 lines_train, lines_test = train_test_split(raw_data, test_size=0.2, random_state=0)
-history = model.fit_generator(generate_data(lines_train), samples_per_epoch=len(lines_train) * 3, nb_epoch=10, validation_data=generate_data(lines_test), nb_val_samples=len(lines_test) * 3)
+history = model.fit_generator(generate_data(lines_train), samples_per_epoch=len(lines_train) * 3, nb_epoch=40, validation_data=generate_data(lines_test), nb_val_samples=len(lines_test) * 3)
 
 # serialize model to JSON
 model_json = model.to_json()
