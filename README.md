@@ -102,6 +102,8 @@ Epoch 20/20
 
 In this training, the model is a little bit overfitted. Thus for this experienment, the best epoch is around 15.
 
+As a comparison, the overall Steering MSE:  0.029642653027202204, so the model perform quite well on this number.
+
 However, all models trained are not stable and perform not well in test. 
 
 ## Other Try
