@@ -14,7 +14,7 @@ print('Modules loaded.')
 # Load data
 raw_data = None
 
-root_path = r'C:\Users\MacNab\Develop\simulator-windows-64\train\\'
+root_path = r'C:\Users\MacNab\Develop\simulator-windows-64\data\\'
 
 with open(root_path + 'driving_log.csv', 'r') as csvfile:
 	reader = csv.reader(csvfile)
@@ -23,11 +23,31 @@ with open(root_path + 'driving_log.csv', 'r') as csvfile:
 # remove too slow data 	
 raw_data = [line for line in raw_data if float(line[6]) > 3]
 
+# Match the image with next steering
+import datetime
+def read_time(filename):
+	index = filename.index('center')
+	year = filename[index+7: index+11]
+	month = filename[index+12: index+14]
+	day = filename[index+15: index+17]
+	hour = filename[index+18: index+20]
+	minuit = filename[index+21: index+23]
+	sec = filename[index+24: index+26]
+	milsec = filename[index+27: index+30]
+	return datetime.datetime(int(year),int(month),int(day), int(hour), int(minuit), int(sec), int(milsec))
+
+for i in range(0, len(raw_data)-1):
+	ts_1 = read_time(raw_data[i][0])
+	ts_2 = read_time(raw_data[i+1][0])
+	if ts_2.timestamp() - ts_1.timestamp() < 1 :
+		raw_data[i][3] = (float(raw_data[i][3]) + float(raw_data[i+1][3])) / 2
+
 # reinforce the curve 0.2
+
 raw_data_curve = [line for line in raw_data if abs(float(line[3])) > 0.2]
-for i in range(0, 5):
+for i in range(5):
 	raw_data.extend(raw_data_curve)
-	
+
 	
 print('CSV file loaded.')	
 print('Data Size: ', len(raw_data))
@@ -66,39 +86,35 @@ model = Sequential()
 
 model.add(BatchNormalization(input_shape=(height, width, 3)))
 
-# 320 * 160 * 3
+# 160 x 320 x 3
 model.add(Convolution2D(40, 11, 11, subsample = (2, 2)))
-# 176 * 88 * 40
+# 75 x 155 x 40
 model.add(Activation('relu'))
 model.add(MaxPooling2D())
-# 88 * 44 * 40
-model.add(Dropout(0.2))
+# 37 x 77 x 40
 
 model.add(Convolution2D(60, 7, 7, subsample = (2, 2)))
-# 42 * 20 * 60
+# 16 x 36 x 60
 model.add(Activation('relu'))
 model.add(MaxPooling2D())
-# 21 * 10 * 60
-model.add(Dropout(0.2))
+# 8 x 18 x 60
 
-
-model.add(Convolution2D(80, 3, 3, subsample = (2, 2)))
-# 10 * 5 * 80
+model.add(Convolution2D(80, 3, 3))
+# 6 x 16 x 80
 model.add(Activation('relu'))
 
-model.add(Convolution2D(110, 3, 3))
-# 8 * 3 * 110
+model.add(Convolution2D(110, 3, 1))
+# 4 * 16 * 110
 model.add(Activation('relu'))
 
 model.add(Flatten())
-# 2640
-model.add(Dropout(0.2))
+model.add(Dropout(0.5))
+# 7040
 
-
-model.add(Dense(240))
+model.add(Dense(1000))
 model.add(Activation('relu'))
 
-model.add(Dense(120))
+model.add(Dense(200))
 model.add(Activation('relu'))
 
 model.add(Dense(50))
@@ -126,13 +142,8 @@ def generate_data(lines):
 			X_left = np.asarray(Image.open(lines[i][1].strip()), dtype=np.uint8)
 			y_left = float(lines[i][3]) + 0.05
 			X_right = np.asarray(Image.open(lines[i][2].strip()), dtype=np.uint8)
-			y_right = float(lines[i][3]) - 0.05
+			y_right = float(lines[i][3]) - 0.045
 			
-			#renforce = 1
-			#if abs(y) > 0.2 :
-			#	renforce = 10
-			
-			#for j in range(0, renforce):
 			batch_X.append(X)
 			batch_y.append(y)
 			batch_X.append(X_left)
@@ -148,9 +159,12 @@ def generate_data(lines):
 model.compile('adam', 'mean_squared_error')
 model.load_weights("model.h5")
 
+for layer in model.layers:
+	print (layer, layer.output_shape)
+
 raw_data = shuffle(raw_data)
 lines_train, lines_test = train_test_split(raw_data, test_size=0.2, random_state=0)
-history = model.fit_generator(generate_data(lines_train), samples_per_epoch=len(lines_train) * 3, nb_epoch=10, validation_data=generate_data(lines_test), nb_val_samples=len(lines_test) * 3)
+history = model.fit_generator(generate_data(lines_train), samples_per_epoch=len(lines_train) * 3, nb_epoch=1, validation_data=generate_data(lines_test), nb_val_samples=len(lines_test) * 3)
 
 # serialize model to JSON
 model_json = model.to_json()
