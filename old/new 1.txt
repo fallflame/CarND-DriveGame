@@ -1,0 +1,69 @@
+$ python model.py
+Modules loaded.
+CSV file loaded.
+Data Size:  48487
+Image Size:  320 x 160
+Steering Mean:  -0.031458266968216804
+Steering MSE:  0.029642653027202204
+<keras.layers.normalization.BatchNormalization object at 0x0000023D99508320> (No                                                  ne, 160, 320, 3)
+<keras.layers.convolutional.Convolution2D object at 0x0000023D9AB6ED68> (None, 7                                                  5, 155, 40)
+<keras.layers.core.Activation object at 0x0000023D9ABE37F0> (None, 75, 155, 40)
+<keras.layers.pooling.MaxPooling2D object at 0x0000023D9ABE3AC8> (None, 37, 77,                                                   40)
+<keras.layers.convolutional.Convolution2D object at 0x0000023D9ABE3B38> (None, 1                                                  6, 36, 60)
+<keras.layers.core.Activation object at 0x0000023D9ABE3C50> (None, 16, 36, 60)
+<keras.layers.pooling.MaxPooling2D object at 0x0000023D9AC02F98> (None, 8, 18, 6                                                  0)
+<keras.layers.convolutional.Convolution2D object at 0x0000023D9AC02550> (None, 6                                                  , 16, 80)
+<keras.layers.core.Activation object at 0x0000023D9AC25C18> (None, 6, 16, 80)
+<keras.layers.convolutional.Convolution2D object at 0x0000023D9AC25748> (None, 4                                                  , 16, 110)
+<keras.layers.core.Activation object at 0x0000023D9AC25828> (None, 4, 16, 110)
+<keras.layers.core.Flatten object at 0x0000023D9AC3F128> (None, 7040)
+<keras.layers.core.Dropout object at 0x0000023D9AC3FDA0> (None, 7040)
+<keras.layers.core.Dense object at 0x0000023D9AC46828> (None, 1000)
+<keras.layers.core.Activation object at 0x0000023D9AC5B8D0> (None, 1000)
+<keras.layers.core.Dense object at 0x0000023D9AC85710> (None, 200)
+<keras.layers.core.Activation object at 0x0000023D9AC8D780> (None, 200)
+<keras.layers.core.Dense object at 0x0000023D9AC9BE10> (None, 50)
+<keras.layers.core.Activation object at 0x0000023D9ACA3C88> (None, 50)
+<keras.layers.core.Dense object at 0x0000023D9ACB2E10> (None, 10)
+<keras.layers.core.Activation object at 0x0000023D9ACBBA20> (None, 10)
+<keras.layers.core.Dense object at 0x0000023D9ACD1E80> (None, 1)
+Epoch 1/20
+116424/116367 [==============================] - 406s - loss: 0.0092 - val_loss:                                                   0.0065
+Epoch 2/20
+116424/116367 [==============================] - 412s - loss: 0.0069 - val_loss: 0.0062
+Epoch 3/20
+116424/116367 [==============================] - 409s - loss: 0.0060 - val_loss: 0.0054
+Epoch 4/20
+116424/116367 [==============================] - 406s - loss: 0.0053 - val_loss: 0.0052
+Epoch 5/20
+116424/116367 [==============================] - 406s - loss: 0.0048 - val_loss: 0.0049
+Epoch 6/20
+116424/116367 [==============================] - 401s - loss: 0.0043 - val_loss: 0.0045
+Epoch 7/20
+116424/116367 [==============================] - 403s - loss: 0.0039 - val_loss: 0.0041
+Epoch 8/20
+116424/116367 [==============================] - 392s - loss: 0.0034 - val_loss: 0.0038
+Epoch 9/20
+116424/116367 [==============================] - 392s - loss: 0.0031 - val_loss: 0.0034
+Epoch 10/20
+116424/116367 [==============================] - 397s - loss: 0.0028 - val_loss: 0.0033
+Epoch 11/20
+116424/116367 [==============================] - 392s - loss: 0.0026 - val_loss: 0.0030
+Epoch 12/20
+116424/116367 [==============================] - 389s - loss: 0.0024 - val_loss: 0.0030
+Epoch 13/20
+116424/116367 [==============================] - 392s - loss: 0.0022 - val_loss: 0.0028
+Epoch 14/20
+116424/116367 [==============================] - 393s - loss: 0.0021 - val_loss: 0.0027
+Epoch 15/20
+116424/116367 [==============================] - 397s - loss: 0.0018 - val_loss: 0.0026
+Epoch 16/20
+116424/116367 [==============================] - 392s - loss: 0.0018 - val_loss: 0.0024
+Epoch 17/20
+116424/116367 [==============================] - 398s - loss: 0.0016 - val_loss: 0.0024
+Epoch 18/20
+116424/116367 [==============================] - 420s - loss: 0.0016 - val_loss: 0.0021
+Epoch 19/20
+116424/116367 [==============================] - 419s - loss: 0.0015 - val_loss: 0.0022
+Epoch 20/20
+116424/116367 [==============================] - 402s - loss: 0.0014 - val_loss: 0.0021Using TensorFlow backend.
