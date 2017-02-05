@@ -114,22 +114,22 @@ However, all models trained are not stable and perform not well in test.
 I decide to use the [Nvidia's Architecture](http://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf) as the begining point.
 This architecture contains 1 normalization layer, 5 convolutional layers and 4 fully-conntected layer.
 
-There is no dropout layer described in the articles. A dropout layer can reduce overfitting of the model. 
-Firstly, I add 3 dropout layers between convolutional layer. 
-However, 3 dropout layers seems too much for this model. 
-And after training, the model predict always a constant number regardless the pictures. 
-After study the VGG16structure, I decide add the dropout layer at the end with the rate 0.5.
+There is no dropout layers described in the articles. A dropout layer can reduce overfitting of the model. 
+Firstly, I add 3 dropout layers between convolutional layers. 
+However, 3 dropout layers seems too much for my model. After training, the model predict always a constant number regardless the pictures. 
+After study the VGG16 structure, I decide add the dropout layer at the end with the rate 0.5.
 
 The Nvidia's network accept images 66x200, our images size is 160x320.
 I need to adjust the parameters to fit our image size. 
-As I don't have enough experience such as kernal size and feature size, I consult models as AlexNet, VGG16, 
-then adjust the model and test the model. 
+As I don't have enough experience on these parameters like kernal size and feature size, I consult models as AlexNet, VGG16, 
+try the parameters they use and test them in experienment. 
 Finally, I reduced it to 4 convolutional layers + 4 fully-conntected layers as the performance are similar. 
 The car is able to drive on itself and make 3 to 5 turns.
 
 To improve the model's robustness, I use the left camera image and right camera image. 
-I add(minus) 0.045 steering angle for left(right) images. 
+I add(minus) 0.045 steering angle for left(right) images.  
 Use these images to train the car go back when it get deviated.
+
 
 
 
