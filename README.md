@@ -65,6 +65,9 @@ Thus, the total data set is 1 hour driving.
 ![Histogram of steering angle](./hist_1.png)
 ![Histogram of steering angle when abs(angle) > 0.01](./hist_2.png)
 
+Steering Angle Mean:  -0.001204757511064644
+Steering Angle MSE:    0.04506767671288408
+
 ### Steering angle shift
 
 Because in the autonomous, the app receive an image then send the steering data. During several experienment, I find that
@@ -136,7 +139,7 @@ In this training, the model is a little bit overfitted. Thus for this experienme
 
 The following stop rule should be applied to stop the training: If delta of val_loss between two epochs < 0.0001, stop the training. 
 
-As a comparison, the overall Steering MSE:  0.029642653027202204, so the model perform quite well on this number.
+As a comparison, the overall Steering MSE:  0.04506767671288408, so the model perform quite well on this number.
 
 
 
