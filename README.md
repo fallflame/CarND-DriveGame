@@ -94,7 +94,7 @@ data is split as 4:1 for training and validation
 The following data is an example for one of the training.
 
 Epoch 1/20
-116424/116367 [==============================] - 406s - loss: 0.0092 - val_loss: 0.0080                                            0.0065
+116424/116367 [==============================] - 406s - loss: 0.0092 - val_loss: 0.0080
 Epoch 2/20
 116424/116367 [==============================] - 412s - loss: 0.0069 - val_loss: 0.0062
 Epoch 3/20
