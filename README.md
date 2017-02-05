@@ -1,7 +1,5 @@
 # CarND-Term Project 3
 
-_update at 2017-02-05, Design of Architecture at the end_ 
-
 ## Introduction
 
 In this project, we are required to train a model that can drive a car in a simulator.
