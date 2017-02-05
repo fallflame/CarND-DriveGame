@@ -123,12 +123,11 @@ The Nvidia's network accept images 66x200, our images size is 160x320.
 I need to adjust the parameters to fit our image size. 
 As I don't have enough experience on these parameters like kernal size and feature size, I consult models as AlexNet, VGG16, 
 try the parameters they use and test them in experienment. 
-Finally, I reduced it to 4 convolutional layers + 4 fully-conntected layers as the performance are similar. 
+Finally, I reduced it to 4 convolutional layers + 4 fully-conntected layers as the performance are similar.
 The car is able to drive on itself and make 3 to 5 turns.
 
 To improve the model's robustness, I use the left camera image and right camera image. 
-I add(minus) 0.045 steering angle for left(right) images.  
-Use these images to train the car go back when it get deviated.
+I add(minus) 0.045 steering angle for left(right) images, use these images to train the car go back when it get deviated.
 
 
 
